@@ -9,3 +9,10 @@ Boot's attempts to configure a JDBC connection but still wires it up to reposito
 
 Instead, component-scanning registers the `MatchesAuthenticationProvider`, but Boot ignores it
 completely and creates the UUID-password `DaoAuthenticationProvider`.
+
+## Usage
+
+Launch the application and load link:http://localhost:8080/[] in a browser. The Basic authentication
+dialog will appear. I expect that the `MatchesAuthenticationProvider` will be used, so that
+any matching username and password will work, but instead Boot still creates the `user`/UUID
+provider.
