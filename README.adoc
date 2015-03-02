@@ -1,0 +1,11 @@
+# Spring Boot #2544 demo
+
+This is a demonstration of the requested functionality in
+link:https://github.com/spring-projects/spring-boot/issues/2544[#2544]. As per usual Boot habit,
+I expect that registering my own `AuthenticationProvider` would keep the Boot-configured
+`ProviderManager` and further Spring Security setup intact but would suppress the
+`DaoAuthenticationProvider` bean provided. (For example, providing a `DataSource` suppresses
+Boot's attempts to configure a JDBC connection but still wires it up to repositories.)
+
+Instead, component-scanning registers the `MatchesAuthenticationProvider`, but Boot ignores it
+completely and creates the UUID-password `DaoAuthenticationProvider`.
